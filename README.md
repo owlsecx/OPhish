@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-Phishing Detection Engine
+OPhish is a detection engine for phishing, smishing, QRishing and email-based threats. It analyses individual URLs, bulk URL lists, SMS messages, .eml emails and QR-code images, scoring them with heuristic analysis and optional threat-intelligence APIs. Results can be exported as JSON, TXT or HTML.
 
 ---
 
 ## ✨ Features
 
-- Analyses URLs, SMS and email content to detect phishing, domain reputation and brand impersonation
+- Analyses single URLs, bulk URL files, SMS messages, .eml emails and QR images
+- Heuristic risk scoring with typosquatting, IDN/punycode homoglyph and entropy analysis
+- Optional VirusTotal, Google Safe Browsing and AbuseIPDB integrations with graceful fallback
+- Async/threaded bulk scanning with a configurable thread count and minimum-score filter
+- STDIN pipeline mode and a fast offline mode that skips network checks
+- CSV/JSON/HTML export and an offline self-test
 
 ---
 
@@ -38,7 +43,10 @@ Phishing Detection Engine
 ## 🚀 Usage
 
 ```bash
-./OPhish
+./OPhish -u https://example.com
+./OPhish -f urls.txt --threads 10 --min-score 50
+./OPhish -e message.eml -o report.html
+./OPhish --help
 ```
 
 ---
